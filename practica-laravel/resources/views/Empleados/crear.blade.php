@@ -1,0 +1,1 @@
+<h1 style='text-align: center; color:brown'>Esta es la vista crear</h1>
