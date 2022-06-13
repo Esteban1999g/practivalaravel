@@ -14,6 +14,7 @@ use App\Http\Controllers\EmpleadosController;
 |
 */
 
+Route::get('empleados/layout', [EmpleadosController::class, 'layout'])->name('empleadolayout');
 Route::get('empleados', [EmpleadosController::class, 'index'])->name('empleadoIndex');
 Route::get('empleados/crear', [EmpleadosController::class, 'crear'])->name('empleadoCrear');
 Route::get('empleados/mostrar', [EmpleadosController::class, 'mostrar'])->name('empleadoMostrar');

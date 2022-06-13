@@ -1,1 +1,5 @@
-<h1 style='text-align: center; color:brown'>Esta es la vista crear</h1>
+@extends('Empleados.layout')
+@section('titulo', 'Crear empleado')
+@section('contenido')
+<h1>Crear - Empleados</h1>
+@endsection

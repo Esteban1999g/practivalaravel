@@ -29,5 +29,9 @@ class EmpleadosController extends Controller
         $titulo = "Vista crear de empleados";
         return view('Empleados.editar');
     }
+    public function layout(){
+        $titulo = "Vista crear de empleados";
+        return view('Empleados.layout');
+    }
     //
 }

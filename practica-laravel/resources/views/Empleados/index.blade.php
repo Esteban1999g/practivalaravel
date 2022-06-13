@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('Empleados.layout')
 @section('titulo', 'Principal')
 @section('contenido')
 
