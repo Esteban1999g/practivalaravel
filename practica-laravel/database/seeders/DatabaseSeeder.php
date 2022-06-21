@@ -21,6 +21,11 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
+        DB::table('cargos')->truncate();
+        DB::table('empleados')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
         $this->call(Cargos_Seeder::class);
+        $this->call(Empleados_Seeder::class);
     }
 }
