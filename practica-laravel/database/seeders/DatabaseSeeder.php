@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Empleado\Cargo;
 use Illuminate\Database\Seeder;
+use App\Models\Empleado\Empleado;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,8 +24,8 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         DB::statement('SET FOREIGN_KEY_CHECKS = 0;');
-        DB::table('cargos')->truncate();
-        DB::table('empleados')->truncate();
+        Cargo::truncate();
+        Empleado::truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS = 1;');
         $this->call(Cargos_Seeder::class);
         $this->call(Empleados_Seeder::class);
