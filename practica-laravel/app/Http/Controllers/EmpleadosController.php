@@ -32,7 +32,33 @@ class EmpleadosController extends Controller
         return view('Empleados.layout');
     }
     public function guardar(){
-        return request();
+
+        $campos=request()->validate([
+            'nombre'=>'required|min:3',
+            'edad'=>'required',
+            'direccion'=>'required',
+            'email'=>'required|email',
+            'idCargo'=>'required'
+    
+        ]);
+        Empleado::create($campos);
+    
+        return redirect('empleados')->with('mensaje', 'Empleado guardado (´°__°`)');
+    
     }
     //
+    public function actualizar(Empleado $empleado){
+
+        $campos=request()->validate([
+            'nombre'=>'required|min:3',
+            'edad'=>'required',
+            'direccion'=>'required',
+            'email'=>'required|email',
+            'idCargo'=>'required'
+    
+        ]);
+        $empleado->update($campos);
+    
+        return redirect('empleados')->with('mensaje', 'Empleado actualizado');
+    }
 }
