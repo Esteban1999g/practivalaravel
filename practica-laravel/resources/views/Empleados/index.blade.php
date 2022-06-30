@@ -26,6 +26,38 @@
         })
     </script>
     @endif
+    <script>
+
+        $('.formulario-eliminar').submit(function(e){
+            e.preventDefault(); // previene que se haga el submit
+            Swal.fire({
+                title: 'Seguro desea eliminar ome?',
+                text: "Esta accion no se podra revertir!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, Eliminalo siiiiiiiiiii!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    this.submit();
+                    
+                }
+            })
+        });    
+        
+    </script>
+
+@if (session('mensaje')=="Empleado eliminado")
+        <script>
+            Swal.fire(
+                'Deleted!',
+                'Your file has been deleted.',
+                'success'
+            )
+        </script>
+        
+    @endif
 @endsection
     <h1>{{$titulo}}</h1>
 
@@ -127,7 +159,7 @@
                 <td>{{$empleado->email}}</td>
                 <td>{{$empleado->cargoEmpleado->nombre}}</td>
                 <td>
-                    <form action="#" method="post">
+                <form action="{{route('empleadoEliminar', $empleado)}}" method="post" class="formulario-eliminar">
                     <a href="#mostrarEmpleado{{$empleado->id}}" data-toggle="modal" data-target="#mostrarEmpleado{{$empleado->id}}"><i class="fas fa-info-circle fa-lg text-success"></i></a>
                     <a href="#editarEmpleado{{$empleado->id}}" data-toggle="modal" data-target="#editarEmpleado{{$empleado->id}}" style="margin-left: 20px; margin-right: 20px;"><i class="fas fa-user-edit fa-lg"></i></a>
 

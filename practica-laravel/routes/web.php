@@ -21,3 +21,4 @@ Route::get('empleados/mostrar', [EmpleadosController::class, 'mostrar'])->name('
 Route::get('empleados/editar', [EmpleadosController::class, 'editar'])->name('empleadoEditar');
 Route::post('empleados', [EmpleadosController::class, 'guardar'])->name('empleadoGuardar');
 Route::put('empleados/{empleado}', [EmpleadosController::class, 'actualizar'])->name('empleadoActualizar');
+Route::delete('empleados/{empleado}', [EmpleadosController::class, 'eliminar'])->name('empleadoEliminar');
